@@ -10,17 +10,17 @@ namespace ConsoleApp3
 			int m = int.Parse(Console.ReadLine());
 
 
-			int[] agro = new int[5];
+			int[] agro = new int[12];
 			Random ran = new Random();
-			for (int i = 0; i < 5; i++)
+			for (int i = 0; i < 12; i++)
 			{
 				agro[i] = ran.Next(m);
 				Console.Write(agro[i] + " ");
 			}
-			for (int i = 0; i < 5; i++)
+			for (int i = 0; i < 12; i++)
 			{
-				for (int j = 1; j < 5 - i; j++)
-					if (agro[j] > agro[j-1])
+				for (int j = 1; j < 12 - i; j++)
+					if (agro[j-1] > agro[j])
 					{
 						int t = agro[j];
 						agro[j] = agro[j - 1];
@@ -28,11 +28,22 @@ namespace ConsoleApp3
 					}
 			}
 			Console.WriteLine("");
-			for (int i = 0; i < 5; i++)
+			for (int i = 0; i < 12; i++)
 			{
 				Console.Write(agro[i] + " ");
 			}
 			Console.WriteLine();
+			Console.WriteLine("Введите число которое вы хотите найти:");
+			int f = int.Parse(Console.ReadLine());
+			for (int i = 0; i < 12; i++)
+			{
+				if (agro[i] == f)
+				{
+					Console.WriteLine("Число " + f +" найдено");
+				}
+				else Console.WriteLine("Такого числа нет");
+			}
+			Console.ReadKey();
 		}
 	}
 }
